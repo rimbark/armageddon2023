@@ -1,0 +1,11 @@
+@import "reset";
+@import "variables/globals";
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  min-width: 375px;
+  background: var(--background-main) url("../public/images/planet.svg") no-repeat fixed left 138px;
+
+  font-family: var(--font-family-main);
+}

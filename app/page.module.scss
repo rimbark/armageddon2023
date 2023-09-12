@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 17px;
+  margin-left: 72px;
+  color: #FFF;
+  padding-left: 380px;
+}
+
+.container input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.container input:checked + label {
+  text-decoration: underline;
+}
+
+.header {
+  width: 279px;
+  height: 108px;
+  font-family: var(--font-family-main);
+  font-weight: var(--font-weight-l);
+  font-size: var(--font-size-l);
+  line-height: var(--font-line-l);
+  color: var(--white-base);
+}

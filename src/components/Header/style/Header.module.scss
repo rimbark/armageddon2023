@@ -1,0 +1,22 @@
+.container {
+  width: 375px;
+  height: 123px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: start;
+  color: var(--white-base);
+  padding: 16px;
+}
+
+.container h1 {
+  font-family: var(--font-passion);
+  font-size: var(--font-size-special);
+  color: var(--orange-base);
+}
+
+.container p {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-s);
+}
