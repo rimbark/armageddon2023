@@ -8,18 +8,22 @@ import { getAsteroidsNextDay, getNextDayDate } from '@/src/actions/getAsteroids'
 import { Spinner } from '@/src/components/Spinner/Spinner'
 import { AsteroidsCart } from '@/src/components/Cart/AsteroidsCart'
 
-export default function Asteroids({ asteroids }: INearEarthObjects) {
+interface IProps {
+  asteroids: INearEarthObjects
+}
+
+export default function Asteroids({ asteroids }: IProps) {
   const { distanceIn } = useDistanceDisplayContext()
   const [currentDate, setCurrentDate] = useState(
     getNextDayDate(new Date().toISOString().split('T')[0]),
   )
-
   const [asteroidsArr, setAsteroidsArr] = useState<INearEarthObjects[]>([asteroids])
   const [isLoading, setIsLoading] = useState(false)
   const [cart, setCart] = useState<any[]>([])
 
   const handleScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !isLoading) {
+    console.log(isLoading)
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1 && !isLoading) {
       fetchData()
     }
   }
@@ -44,11 +48,12 @@ export default function Asteroids({ asteroids }: INearEarthObjects) {
   }
 
   useEffect(() => {
+    console.log('useEffect')
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [currentDate])
+  }, [handleScroll])
 
   return (
     <div className={s.container}>

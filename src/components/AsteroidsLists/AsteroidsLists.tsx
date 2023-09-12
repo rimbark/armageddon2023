@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import s from './style/AsteroidsLists.module.scss'
 import { IAsteroidInfo, ICloseApproachDaum, INearEarthObjects } from '@/src/types/types'
 import { Distance } from '@/src/components/Context/DistanceDisplayContext'
@@ -15,6 +15,7 @@ interface AsteroidsListsProps {
   date: string
   asteroidsInDate: INearEarthObjects
   distanceIn: Distance
+  setCart: Dispatch<SetStateAction<any[]>>
 }
 
 export default function AsteroidsLists({ date, asteroidsInDate, distanceIn }: AsteroidsListsProps) {
@@ -57,7 +58,7 @@ export default function AsteroidsLists({ date, asteroidsInDate, distanceIn }: As
             <button>ЗАКАЗАТЬ</button>
             {asteroidInfo.is_potentially_hazardous_asteroid && (
               <div>
-                <Image src={dangerous} alt={'dangerous asteroid'} />
+                <Image src={dangerous} alt={'dangerous asteroid'} className={s.blinkingImage} />
               </div>
             )}
           </div>
