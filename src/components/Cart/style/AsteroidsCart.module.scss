@@ -1,4 +1,7 @@
 .container {
+  position: fixed;
+  left: 764px;
+  top: 150px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -17,7 +20,7 @@
   border-radius: 24px;
 }
 
-.container button {
+.sentOrder {
   width: 118px;
   height: 48px;
 
@@ -36,6 +39,7 @@
   line-height: var(--font-line-xs);
   font-weight: 700;
   color: var(--white-base);
+  text-decoration: none;
 
   cursor: pointer;
 }

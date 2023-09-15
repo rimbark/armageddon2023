@@ -1,4 +1,4 @@
-import { Distance } from '@/src/components/Context/DistanceDisplayContext'
+import { Distance } from '@/src/components/DistanceContext/DistanceDisplayContext'
 import { IMissDistance } from '@/src/types/types'
 
 interface IProps {

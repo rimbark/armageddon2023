@@ -1,3 +1,15 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 
+  margin-top: 17px;
+
+  padding-left: 362px;
+
+  color: #FFF;
+}
+
+.header {
+  font-size: var(--font-size-m);
 }

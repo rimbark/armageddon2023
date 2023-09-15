@@ -3,7 +3,8 @@ import type { Metadata } from 'next'
 import { Passion_One } from 'next/font/google'
 import { Header } from '@/src/components/Header/Header'
 import React from 'react'
-import { DistanceContextProvider } from '@/src/components/Context/DistanceContextProvider'
+import { CartContextProvider } from '@/src/components/CartContext/CartContextProvider'
+import { DistanceContextProvider } from '@/src/components/DistanceContext/DistanceContextProvider'
 
 export const passionOne = Passion_One({
   subsets: ['latin'],
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body>
         <Header />
-        <DistanceContextProvider>{children}</DistanceContextProvider>
+        <DistanceContextProvider>
+          <CartContextProvider>{children}</CartContextProvider>
+        </DistanceContextProvider>
       </body>
     </html>
   )

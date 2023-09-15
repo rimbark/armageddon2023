@@ -1,35 +1,29 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import s from './style/Asteroids.module.scss'
-import { useDistanceDisplayContext } from '@/src/components/Context/DistanceDisplayContext'
 import { INearEarthObjects } from '@/src/types/types'
 import AsteroidsLists from '@/src/components/AsteroidsLists/AsteroidsLists'
 import { getAsteroidsNextDay, getNextDayDate } from '@/src/actions/getAsteroids'
 import { Spinner } from '@/src/components/Spinner/Spinner'
-import { AsteroidsCart } from '@/src/components/Cart/AsteroidsCart'
 
 interface IProps {
   asteroids: INearEarthObjects
 }
 
 export default function Asteroids({ asteroids }: IProps) {
-  const { distanceIn } = useDistanceDisplayContext()
   const [currentDate, setCurrentDate] = useState(
     getNextDayDate(new Date().toISOString().split('T')[0]),
   )
   const [asteroidsArr, setAsteroidsArr] = useState<INearEarthObjects[]>([asteroids])
   const [isLoading, setIsLoading] = useState(false)
-  const [cart, setCart] = useState<any[]>([])
 
   const handleScroll = () => {
-    console.log(isLoading)
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1 && !isLoading) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2 && !isLoading) {
       fetchData()
     }
   }
 
   const fetchData = async () => {
-    console.log('fetchData')
     try {
       setIsLoading(true)
       const asteroidsNextDay = await getAsteroidsNextDay(currentDate)
@@ -48,7 +42,6 @@ export default function Asteroids({ asteroids }: IProps) {
   }
 
   useEffect(() => {
-    console.log('useEffect')
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -63,13 +56,11 @@ export default function Asteroids({ asteroids }: IProps) {
             key={Object.keys(date).toString()}
             date={Object.keys(date).toString()}
             asteroidsInDate={date}
-            distanceIn={distanceIn}
-            setCart={setCart}
+            isCartPage={false}
           />
         ))}
         {isLoading && <Spinner />}
       </div>
-      <AsteroidsCart cart={cart} />
     </div>
   )
 }

@@ -1,20 +1,24 @@
+'use client'
 import React from 'react'
 import s from './style/AsteroidsCart.module.scss'
 import { getAsteroidsCartSize } from '@/src/helpers/getAsteroidsCartSize'
+import Link from 'next/link'
+import { useCartContext } from '@/src/components/CartContext/CartContext'
 
-interface IProps {
-  cart: any[]
-}
+export const AsteroidsCart = () => {
+  const { cart } = useCartContext()
 
-export const AsteroidsCart = ({ cart }: IProps) => {
   const cartLength = cart.length
+
   return (
     <div className={s.container}>
       <div>
         <h4>Корзина</h4>
         <span>{getAsteroidsCartSize(cartLength)}</span>
       </div>
-      <button>Отправить</button>
+      <Link className={s.sentOrder} href={'cart'}>
+        Отправить
+      </Link>
     </div>
   )
 }

@@ -1,11 +1,10 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: start;
   margin-top: 17px;
-  margin-left: 72px;
   color: #FFF;
-  padding-left: 380px;
+  padding-left: 362px;
 }
 
 .container input {
@@ -19,11 +18,15 @@
 }
 
 .header {
-  width: 279px;
+  width: 402px;
   height: 108px;
   font-family: var(--font-family-main);
   font-weight: var(--font-weight-l);
   font-size: var(--font-size-l);
   line-height: var(--font-line-l);
   color: var(--white-base);
+}
+
+.mainContent {
+  width: 552px;
 }
