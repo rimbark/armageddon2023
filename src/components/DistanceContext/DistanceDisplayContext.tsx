@@ -14,7 +14,7 @@ interface IDistanceContext {
 
 export const DistanceDisplayContext = createContext<IDistanceContext>({
   distanceIn: Distance.KILOMETERS,
-  changeDistanceDisplay(distanceView) {},
+  changeDistanceDisplay() {},
 })
 
 export const useDistanceDisplayContext = () => useContext(DistanceDisplayContext)
