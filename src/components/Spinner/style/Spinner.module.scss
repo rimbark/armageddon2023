@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   gap: 30px;
+
   width: max-content;
   height: 100px;
 }
@@ -9,6 +10,7 @@
 .asteroid {
   width: 50px;
   height: auto;
+
   animation: spin 1s linear infinite;
 }
 

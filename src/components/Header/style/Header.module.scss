@@ -1,22 +1,23 @@
 .container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
   width: 325px;
   height: 123px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-
-  color: var(--white-base);
+  padding-top: 16px;
 
   padding-left: 16px;
-  padding-top: 16px;
+
+  color: var(--white-base);
+  gap: 8px;
 }
 
 .container h1 {
+  color: var(--orange-base);
+
   font-family: var(--font-passion);
   font-size: var(--font-size-special);
-  color: var(--orange-base);
   font-weight: 400;
 }
 

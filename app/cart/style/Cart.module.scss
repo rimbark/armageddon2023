@@ -1,11 +1,11 @@
 @import "src/styles/variables/mixins";
 
 .container {
-  @include main-padding;
   flex-direction: column;
   justify-content: space-between;
 
   color: #FFF;
+  @include main-padding;
 }
 
 .header {

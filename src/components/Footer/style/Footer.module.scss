@@ -1,11 +1,12 @@
 .container {
   width: 100%;
-
-  padding-left: 16px;
   padding-bottom: 16px;
 
-  font-size: var(--font-size-s);
+  padding-left: 16px;
+
   color: var(--white-base);
+
+  font-size: var(--font-size-s);
 
   @media (min-width: 820px) {
     position: fixed;

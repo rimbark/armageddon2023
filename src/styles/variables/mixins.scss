@@ -18,9 +18,10 @@
   }
 
   @media (max-width: 600px) {
-    padding-left: 40px;
     flex-direction: column;
     justify-content: space-between;
+
+    padding-left: 40px;
   }
 }
 

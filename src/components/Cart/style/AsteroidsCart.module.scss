@@ -1,24 +1,25 @@
 .container {
   position: fixed;
-  left: 764px;
   top: 150px;
+  left: 764px;
 
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 32px;
 
   width: 150px;
   height: 161px;
 
   padding: 16px;
 
+  border-radius: 24px;
+
   background: var(--background-cart);
 
   font-size: var(--font-size-s);
   line-height: var(--font-line-s);
-  border-radius: 24px;
+  gap: 32px;
 
   @media (max-width: 950px) {
     left: 650px;
@@ -33,20 +34,20 @@
   }
 
   @media (max-width: 600px) {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+
     display: flex;
-    flex-direction: row;
     align-items: center;
+    flex-direction: row;
     justify-content: space-between;
 
     width: 100%;
     height: 81px;
 
     border-radius: unset;
-
-    top: auto;
-    right: auto;
-    left: 0;
-    bottom: 0;
   }
 }
 
@@ -58,27 +59,28 @@
 
 
 .sentOrder {
-  width: 118px;
-  height: 48px;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 118px;
+  height: 48px;
+
   padding: 16px;
 
-  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+
+  color: var(--white-base);
   border: none;
+
+  border-radius: 40px;
 
   background: var(--orange-base);
 
   font-size: var(--font-size-xs);
-  line-height: var(--font-line-xs);
   font-weight: 700;
-  color: var(--white-base);
-  text-decoration: none;
-
-  cursor: pointer;
+  line-height: var(--font-line-xs);
 }
 
 
