@@ -21,7 +21,7 @@ export async function getAsteroids(): Promise<IRoot> {
   ).then(resp => resp.json())
 }
 
-export async function getAsteroidsNextDay(requestDay): Promise<IRoot> {
+export async function getAsteroidsNextDay(requestDay: string): Promise<IRoot> {
   console.log(requestDay)
   return await fetch(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${requestDay}&end_date=${requestDay}&api_key=${API_KEY}`,
