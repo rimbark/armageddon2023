@@ -8,11 +8,11 @@ interface IProps {
 
 export const formattedText = ({ distance, distanceIn }: IProps) => {
   let isLunarOrbits = true
-  let incomeDistance = parseInt(distance.lunar, 10)
+  let incomeDistance = Number.parseInt(distance.lunar, 10)
 
   if (distanceIn === Distance.KILOMETERS) {
     isLunarOrbits = false
-    incomeDistance = parseInt(distance.kilometers, 10)
+    incomeDistance = Number.parseInt(distance.kilometers, 10)
   }
 
   const formattedDistance = incomeDistance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
