@@ -2,6 +2,7 @@ export const throttle = (inputFunction, ms) => {
   let isThrottled = false
   let savedArguments
   let savedThis
+
   const wrapper = () => {
     if (isThrottled) {
       savedArguments = arguments

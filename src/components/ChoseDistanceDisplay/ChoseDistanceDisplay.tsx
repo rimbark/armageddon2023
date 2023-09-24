@@ -2,7 +2,7 @@
 import {
   Distance,
   useDistanceDisplayContext,
-} from '@/components/DistanceContext/DistanceDisplayContext'
+} from '@/context/DistanceContext/DistanceDisplayContext'
 import React from 'react'
 
 export const ChoseDistanceDisplay = () => {

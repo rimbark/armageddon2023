@@ -1,22 +1,9 @@
-export const changeDateFormatBack = inputDate => {
-  const months = [
-    'янв',
-    'фев',
-    'март',
-    'апр',
-    'май',
-    'июнь',
-    'июль',
-    'авг',
-    'сент',
-    'окт',
-    'ноя',
-    'дек',
-  ]
+import { monthNames } from '@/helpers/date.constants'
 
+export const changeDateFormatBack = inputDate => {
   const parts = inputDate.split(' ')
   let day = parts[0]
-  const month = months.indexOf(parts[1]) + 1
+  const month = monthNames.indexOf(parts[1]) + 1
   const year = parts[2]
 
   const date = new Date(`${year}-${month}-${day}` + 'UTC')

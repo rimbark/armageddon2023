@@ -1,6 +1,6 @@
 'use client'
+import { useCartContext } from '@/components/../../src/context/CartContext/CartContext'
 import AsteroidsLists from '@/components/AsteroidsLists/AsteroidsLists'
-import { useCartContext } from '@/components/CartContext/CartContext'
 import React from 'react'
 import s from './style/Cart.module.scss'
 

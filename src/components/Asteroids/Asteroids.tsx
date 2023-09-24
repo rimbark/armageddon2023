@@ -23,7 +23,6 @@ export default function Asteroids({ asteroids }: IProps) {
       fetchData()
     }
   }
-
   handleScroll = throttle(handleScroll, 500)
 
   const fetchData = async () => {

@@ -1,6 +1,6 @@
-import { useDistanceDisplayContext } from '@/components/DistanceContext/DistanceDisplayContext'
 import { IsDangerous } from '@/components/IsDangerous/IsDangerous'
 import { OrderButton } from '@/components/OrderButton/OrderButton'
+import { useDistanceDisplayContext } from '@/context/DistanceContext/DistanceDisplayContext'
 import { changeDateFormat } from '@/helpers/changeDateFormat'
 import { changeDateFormatBack } from '@/helpers/changeDateFormatBack'
 import { formattedText } from '@/helpers/formattedText'
@@ -12,7 +12,7 @@ import cn from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import s from './style/List.module.scss'
+import s from './style/ListItem.module.scss'
 
 interface IProps {
   asteroidInfo: IAsteroidInfo
@@ -20,7 +20,7 @@ interface IProps {
   date?: string
 }
 
-export const List = ({ asteroidInfo, isCartPage, date }: IProps) => {
+export const ListItem = ({ asteroidInfo, isCartPage, date }: IProps) => {
   const { distanceIn } = useDistanceDisplayContext()
 
   const formattedDate = isCartPage ? changeDateFormatBack(date) : date
@@ -31,7 +31,7 @@ export const List = ({ asteroidInfo, isCartPage, date }: IProps) => {
         <div>
           <h2>{isCartPage ? date : changeDateFormat(date)}</h2>
         </div>
-        <div className={s.secondRow}>
+        <div className={s.nameRow}>
           <div className={s.distanceContainer}>
             <div>
               {asteroidInfo.close_approach_data.map((approachData: ICloseApproachDaum) =>
@@ -59,7 +59,7 @@ export const List = ({ asteroidInfo, isCartPage, date }: IProps) => {
             </div>
           </div>
         </div>
-        <div className={s.thirdRow}>
+        <div className={s.orderRow}>
           {!isCartPage && <OrderButton asteroidInfo={asteroidInfo} date={changeDateFormat(date)} />}
           <IsDangerous
             isDangerous={asteroidInfo.is_potentially_hazardous_asteroid}

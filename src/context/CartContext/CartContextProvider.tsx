@@ -1,5 +1,5 @@
 'use client'
-import { CartContext } from '@/components/CartContext/CartContext'
+import { CartContext } from '@/context/CartContext/CartContext'
 import { INearEarthObjects } from '@/types/types'
 import React, { useState } from 'react'
 
@@ -9,6 +9,7 @@ interface IProps {
 
 export const CartContextProvider = ({ children }: IProps) => {
   const [cart, setCart] = useState<INearEarthObjects>({})
+
   const addAsteroidInCart = (date, orderedAsteroid) => {
     setCart((prevState: INearEarthObjects) => {
       if (date in prevState) {
@@ -16,6 +17,7 @@ export const CartContextProvider = ({ children }: IProps) => {
       } else {
         prevState[date] = [orderedAsteroid]
       }
+
       return { ...prevState }
     })
   }

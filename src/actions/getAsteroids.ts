@@ -1,5 +1,4 @@
 import { IAsteroidInfo, IRoot } from '@/types/types'
-import 'dotenv/config'
 import * as process from 'process'
 
 const API_KEY = process.env.NEXT_PUBLIC_NOT_SECRET_API_KEY
@@ -18,24 +17,24 @@ export function getNextDayDate(date) {
 
 export async function getAsteroids(): Promise<IRoot> {
   return await fetch(
-    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${START_DATE}&api_key=${API_KEY}`,
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${START_DATE}&api_key=${API_KEY}`,
   ).then(resp => resp.json())
 }
 
 export async function getAsteroidsNextDay(requestDay): Promise<IRoot> {
   return await fetch(
-    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${requestDay}&end_date=${requestDay}&api_key=${API_KEY}`,
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${requestDay}&end_date=${requestDay}&api_key=${API_KEY}`,
   ).then(resp => resp.json())
 }
 
-export async function getAsteroidById({ date, id }: IParams) {
+export async function getAsteroidById({date, id}: IParams) {
   const response = await fetch(
-    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${date}&api_key=${API_KEY}`,
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${date}&api_key=${API_KEY}`,
   )
   const data = await response.json()
   const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
-  console.log(asteroids)
   const asteroid: IAsteroidInfo | undefined = asteroids.find(item => item.id === id.toString())
+
   if (asteroid) {
     return asteroid
   } else {

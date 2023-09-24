@@ -1,5 +1,5 @@
 'use client'
-import { useCartContext } from '@/components/CartContext/CartContext'
+import { useCartContext } from '@/context/CartContext/CartContext'
 import { getAsteroidsCartSize } from '@/helpers/getAsteroidsCartSize'
 import { getCartSIze } from '@/helpers/getCartSIze'
 import cn from 'clsx'

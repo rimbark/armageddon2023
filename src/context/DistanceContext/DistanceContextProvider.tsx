@@ -1,9 +1,9 @@
 'use client'
+import React, { useState } from 'react'
 import {
   Distance,
   DistanceDisplayContext,
-} from '@/components/DistanceContext/DistanceDisplayContext'
-import React, { useState } from 'react'
+} from 'src/context/DistanceContext/DistanceDisplayContext'
 
 interface IProps {
   children: React.ReactNode
