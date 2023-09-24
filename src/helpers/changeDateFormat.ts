@@ -1,6 +1,6 @@
 import { monthNames } from '@/helpers/date.constants'
 
-export const changeDateFormat = originalDate => {
+export const changeDateFormat = (originalDate: string) => {
   const dateObject = new Date(originalDate)
   const day = dateObject.getDate()
   const monthIndex = dateObject.getMonth()

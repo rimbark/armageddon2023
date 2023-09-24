@@ -21,7 +21,7 @@
 
 .nameRow {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: row;
 
   font-size: var(--font-size-s);

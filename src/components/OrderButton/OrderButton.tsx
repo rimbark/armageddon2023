@@ -11,7 +11,9 @@ interface IProps {
 export const OrderButton = ({ asteroidInfo, date }: IProps) => {
   const { cart, addAsteroidInCart } = useCartContext()
 
-  const handleClick = e => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (
+    e: React.MouseEvent<HTMLButtonElement>,
+  ) => {
     e.preventDefault()
     addAsteroidInCart(date, asteroidInfo)
   }
