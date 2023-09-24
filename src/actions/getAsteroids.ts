@@ -36,7 +36,8 @@ export async function getAsteroidById({ date, id }: IParams) {
   )
   const data = await response?.json()
   const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
-  const asteroid: IAsteroidInfo | undefined = asteroids.find(item => item.id === id.toString())
+  let asteroid: IAsteroidInfo
+  asteroid = asteroids.find(item => item.id === id.toString())
   if (asteroid) {
     return asteroid
   } else {
