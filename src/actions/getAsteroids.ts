@@ -1,7 +1,6 @@
 import { IAsteroidInfo, IRoot } from '@/types/types'
-import * as process from 'process'
 
-const API_KEY = process.env.NEXT_PUBLIC_NOT_SECRET_API_KEY
+const API_KEY = 'ElUg9Aq1SyEbXMIZYgSRig3r0Q5U27Jeq2fvvpz1'
 const START_DATE = new Date().toISOString().split('T')[0]
 
 interface IParams {
@@ -34,7 +33,7 @@ export async function getAsteroidById({ date, id }: IParams) {
   const response = await fetch(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${date}&api_key=${API_KEY}`,
   )
-  const data = await response?.json()
+  const data: IRoot = await response?.json()
   const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
   const asteroid: IAsteroidInfo | undefined = asteroids.find(item => item.id === id.toString())
   if (asteroid === undefined) {
