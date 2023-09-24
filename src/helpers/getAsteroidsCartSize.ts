@@ -1,4 +1,4 @@
-export const getAsteroidsCartSize = count => {
+export const getAsteroidsCartSize = (count: number) => {
   const words = ['астероид', 'астероида', 'астероидов']
   let wordIndex
 

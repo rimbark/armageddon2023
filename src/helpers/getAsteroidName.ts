@@ -1,4 +1,4 @@
-export const getAsteroidName = string => {
+export const getAsteroidName = (string: string) => {
   const openingBracket = '('
   const closingBracket = ')'
 

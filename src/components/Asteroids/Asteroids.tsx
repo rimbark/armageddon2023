@@ -2,8 +2,8 @@
 import { getAsteroidsNextDay, getNextDayDate } from '@/actions/getAsteroids'
 import AsteroidsLists from '@/components/AsteroidsLists/AsteroidsLists'
 import { Spinner } from '@/components/Spinner/Spinner'
-import { throttle } from '@/helpers/throttle'
 import { INearEarthObjects } from '@/types/types'
+import _ from 'lodash'
 import React, { useEffect, useState } from 'react'
 import s from './style/Asteroids.module.scss'
 
@@ -23,8 +23,7 @@ export default function Asteroids({ asteroids }: IProps) {
       fetchData()
     }
   }
-  handleScroll = throttle(handleScroll, 500)
-
+  handleScroll = _.throttle(handleScroll, 500)
   const fetchData = async () => {
     try {
       setIsLoading(true)
