@@ -31,21 +31,16 @@ export async function getAsteroidsNextDay(requestDay: string): Promise<IRoot> {
 }
 
 export async function getAsteroidById({ date, id }: IParams) {
-  try {
-    const response = await fetch(
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${date}&api_key=${API_KEY}`,
-    )
-    const data = await response?.json()
-    const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
-    const asteroid: IAsteroidInfo = asteroids.find(item => item.id === id.toString())
+  const response = await fetch(
+    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${date}&api_key=${API_KEY}`,
+  )
+  const data = await response?.json()
+  const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
+  const asteroid: IAsteroidInfo = asteroids.find(item => item.id === id.toString())
 
-    if (asteroid) {
-      return asteroid
-    } else {
-      throw new Error('Asteroid not found')
-    }
-  } catch (error) {
-    console.error(error)
-    return new Error('Failed to get asteroid by ID')
+  if (asteroid) {
+    return asteroid
+  } else {
+    throw new Error('Asteroid not found')
   }
 }
