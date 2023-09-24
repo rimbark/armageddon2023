@@ -9,5 +9,5 @@ export const getAsteroidName = (string: string) => {
     return ''
   }
 
-  return string.substring(startIndex + 1, endIndex)
+  return string.slice(startIndex + 1, endIndex)
 }
