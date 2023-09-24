@@ -5,17 +5,23 @@ import { useCartContext } from '@/src/components/CartContext/CartContext'
 
 interface IProps {
   asteroidInfo: IAsteroidInfo
+  date: string
 }
 
-export const OrderButton = ({ asteroidInfo }: IProps) => {
+export const OrderButton = ({ asteroidInfo, date }: IProps) => {
   const { cart, addAsteroidInCart } = useCartContext()
+
+  const handleClick = e => {
+    e.preventDefault()
+    addAsteroidInCart(date, asteroidInfo)
+  }
 
   return (
     <div className={s.container}>
-      {cart.some(asteroid => asteroid.id === asteroidInfo.id) ? (
+      {cart[date]?.some(asteroid => asteroid.id === asteroidInfo.id) ? (
         <button disabled>В КОРЗИНЕ</button>
       ) : (
-        <button onClick={() => addAsteroidInCart(asteroidInfo)}>ЗАКАЗАТЬ</button>
+        <button onClick={handleClick}>ЗАКАЗАТЬ</button>
       )}
     </div>
   )

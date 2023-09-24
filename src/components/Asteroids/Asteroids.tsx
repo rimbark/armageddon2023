@@ -5,6 +5,7 @@ import { INearEarthObjects } from '@/src/types/types'
 import AsteroidsLists from '@/src/components/AsteroidsLists/AsteroidsLists'
 import { getAsteroidsNextDay, getNextDayDate } from '@/src/actions/getAsteroids'
 import { Spinner } from '@/src/components/Spinner/Spinner'
+import { throttle } from '@/src/helpers/throttle'
 
 interface IProps {
   asteroids: INearEarthObjects
@@ -17,11 +18,13 @@ export default function Asteroids({ asteroids }: IProps) {
   const [asteroidsArr, setAsteroidsArr] = useState<INearEarthObjects[]>([asteroids])
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleScroll = () => {
+  let handleScroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2 && !isLoading) {
       fetchData()
     }
   }
+
+  handleScroll = throttle(handleScroll, 500)
 
   const fetchData = async () => {
     try {

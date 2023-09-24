@@ -1,15 +1,15 @@
 'use client'
 
 import React, { createContext, useContext } from 'react'
-import { IAsteroidInfo } from '@/src/types/types'
+import { INearEarthObjects } from '@/src/types/types'
 
 interface ICartContext {
-  cart: IAsteroidInfo[]
-  addAsteroidInCart: (orderedAsteroid) => void
+  cart: INearEarthObjects
+  addAsteroidInCart: (date, orderedAsteroid) => void
 }
 
 export const CartContext = createContext<ICartContext>({
-  cart: [],
+  cart: {},
   addAsteroidInCart() {},
 })
 

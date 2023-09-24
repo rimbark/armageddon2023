@@ -1,0 +1,26 @@
+@mixin main-padding {
+  display: flex;
+  align-items: flex-start;
+
+  margin-top: 17px;
+
+  padding-left: 362px;
+  @media (max-width: 950px) {
+    padding-left: 320px;
+  }
+
+  @media (max-width: 820px) {
+    padding-left: 220px;
+  }
+
+  @media (max-width: 700px) {
+    padding-left: 120px;
+  }
+
+  @media (max-width: 600px) {
+    padding-left: 40px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+

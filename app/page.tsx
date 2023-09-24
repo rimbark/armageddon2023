@@ -10,12 +10,12 @@ export default async function Home() {
 
   return (
     <div className={s.container}>
-      <div className={s.mainContent}>
+      <div>
         <h2 className={s.header}>Ближайшие подлёты астероидов</h2>
         <ChoseDistanceDisplay />
         <Asteroids asteroids={asteroids.near_earth_objects} />
-        <AsteroidsCart />
       </div>
+      <AsteroidsCart />
     </div>
   )
 }

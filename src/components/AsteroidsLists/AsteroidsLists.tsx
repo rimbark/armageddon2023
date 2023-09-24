@@ -3,15 +3,16 @@ import { IAsteroidInfo, INearEarthObjects } from '@/src/types/types'
 import { List } from '@/src/components/List/List'
 
 interface AsteroidsListsProps {
-  date?: string
+  date: string
   asteroidsInDate: INearEarthObjects
+  isCartPage: boolean
 }
 
-export default function AsteroidsLists({ date, asteroidsInDate }: AsteroidsListsProps) {
+export default function AsteroidsLists({ date, asteroidsInDate, isCartPage }: AsteroidsListsProps) {
   return (
     <>
       {asteroidsInDate[date].map((asteroidInfo: IAsteroidInfo, index) => (
-        <List asteroidInfo={asteroidInfo} key={index} isCartPage={false} date={date} />
+        <List asteroidInfo={asteroidInfo} key={index} isCartPage={isCartPage} date={date} />
       ))}
     </>
   )

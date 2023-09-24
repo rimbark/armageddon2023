@@ -3,9 +3,34 @@
 
 body {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   min-width: 375px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-x: hidden;
   background: var(--background-main) url("../public/images/planet.svg") no-repeat fixed left 138px;
   background-size: 377px 436px;
+
   font-family: var(--font-family-main);
+
+  @media (max-width: 820px) {
+    background-position-x: -100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 700px) {
+    background-position-x: -200px;
+  }
+
+  @media (max-width: 600px) {
+    background-position-x: -280px;
+  }
+}
+
+main {
+  flex-grow: 1;
 }
