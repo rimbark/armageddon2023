@@ -17,7 +17,7 @@ import s from './style/ListItem.module.scss'
 interface IProps {
   asteroidInfo: IAsteroidInfo
   isCartPage: boolean
-  date?: string
+  date: string
 }
 
 export const ListItem = ({ asteroidInfo, isCartPage, date }: IProps) => {
