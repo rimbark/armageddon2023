@@ -35,10 +35,9 @@ export async function getAsteroidById({ date, id }: IParams) {
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${date}&api_key=${API_KEY}`,
   )
   const data = await response?.json()
-  if (data) {
-    const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
+  const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
+  if (asteroids) {
     const asteroid: IAsteroidInfo = asteroids.find(item => item.id === id.toString())
-
     return asteroid
   } else {
     throw new Error('Asteroid not found')
