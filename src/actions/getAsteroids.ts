@@ -16,15 +16,15 @@ export function getNextDayDate(date: string) {
 }
 
 export async function getAsteroids(): Promise<IRoot> {
-  let result = await fetch(
+  const res = await fetch(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_DATE}&end_date=${START_DATE}&api_key=${API_KEY}`,
   ).then(resp => resp.json())
-  return result
+  return res
 }
 
 export async function getAsteroidsNextDay(requestDay: string): Promise<IRoot> {
   console.log(requestDay)
-  let res = await fetch(
+  const res = await fetch(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${requestDay}&end_date=${requestDay}&api_key=${API_KEY}`,
   ).then(resp => resp.json())
   return res

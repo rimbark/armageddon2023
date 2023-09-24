@@ -6,8 +6,11 @@ interface IProps {
 }
 
 export const ListOfApproaches = ({ approachData }: IProps) => {
-  const missDistance = parseInt(String(approachData.miss_distance.kilometers))
-  const relativeVelocity = parseInt(String(approachData.relative_velocity.kilometers_per_hour))
+  const missDistance = Number.parseInt(String(approachData.miss_distance.kilometers), 10)
+  const relativeVelocity = Number.parseInt(
+    String(approachData.relative_velocity.kilometers_per_hour),
+    10,
+  )
 
   return (
     <>

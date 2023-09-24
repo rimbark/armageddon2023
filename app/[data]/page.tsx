@@ -19,8 +19,9 @@ interface IProps {
 
 export default async function AsteroidInfo({ params: { data } }: IProps) {
   const asteroidInfo = await getAsteroidById(getDateAndIdFromParams(data))
-  const asteroidSize = parseInt(
+  const asteroidSize = Number.parseInt(
     String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max),
+    10,
   )
 
   return (

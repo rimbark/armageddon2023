@@ -27,7 +27,7 @@ export const ListItem = ({ asteroidInfo, isCartPage, date }: IProps) => {
 
   return (
     <Link href={`${formattedDate}-${asteroidInfo.id}`} className={s.linkBlock}>
-      <div className={s.container} tabIndex={0}>
+      <div className={s.container}>
         <div>
           <h2>{isCartPage ? date : changeDateFormat(date)}</h2>
         </div>
@@ -55,7 +55,10 @@ export const ListItem = ({ asteroidInfo, isCartPage, date }: IProps) => {
             <div className={s.nameStyle}>{getAsteroidName(asteroidInfo.name)}</div>
             <div>
               &Oslash;
-              {parseInt(String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max))}
+              {Number.parseInt(
+                String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max),
+                10,
+              )}
             </div>
           </div>
         </div>
