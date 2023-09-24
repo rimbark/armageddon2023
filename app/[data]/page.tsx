@@ -1,15 +1,15 @@
+import { getAsteroidById } from '@/actions/getAsteroids'
+import { passionOne } from '@/app/layout'
+import { IsDangerous } from '@/components/IsDangerous/IsDangerous'
+import { ListOfApproaches } from '@/components/LIstOfApproaches/ListOfApproaches'
+import { getAsteroidName } from '@/helpers/getAsteroidName'
+import { getAsteroidSize } from '@/helpers/getAsteroidSize'
+import { getDateAndIdFromParams } from '@/helpers/getDateAndIdFromParams'
+import asteroid from '@/public/images/asteroid.svg'
+import cn from 'clsx'
+import Image from 'next/image'
 import React from 'react'
 import s from './style/AsteroidInfo.module.scss'
-import Image from 'next/image'
-import asteroid from '@/src/public/images/asteroid.svg'
-import { getDateAndIdFromParams } from '@/src/helpers/getDateAndIdFromParams'
-import { getAsteroidById } from '@/src/actions/getAsteroids'
-import { getAsteroidName } from '@/src/helpers/getAsteroidName'
-import { passionOne } from '@/app/layout'
-import cn from 'clsx'
-import { IsDangerous } from '@/src/components/IsDangerous/IsDangerous'
-import { ListOfApproaches } from '@/src/components/LIstOfApproaches/ListOfApproaches'
-import { getAsteroidSize } from '@/src/helpers/getAsteroidSize'
 
 interface IProps {
   params: {
@@ -22,11 +22,10 @@ export default async function AsteroidInfo({ params: { data } }: IProps) {
   const asteroidSize = parseInt(
     String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max),
   )
+
   return (
     <div className={cn(s.container, passionOne.className)}>
-      <h2>
-        Asteroid name - <span>{getAsteroidName(asteroidInfo.name)}</span>
-      </h2>
+      <h2>Asteroid name - {getAsteroidName(asteroidInfo.name)}</h2>
       <ul className={s.mainListBlock}>
         <li>
           <h3>Size -</h3>

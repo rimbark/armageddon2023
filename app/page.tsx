@@ -1,9 +1,9 @@
-import s from './page.module.scss'
+import { getAsteroids } from '@/actions/getAsteroids'
+import Asteroids from '@/components/Asteroids/Asteroids'
+import { AsteroidsCart } from '@/components/Cart/AsteroidsCart'
+import { ChoseDistanceDisplay } from '@/components/ChoseDistanceDisplay/ChoseDistanceDisplay'
 import React from 'react'
-import { ChoseDistanceDisplay } from '@/src/components/ChoseDistanceDisplay/ChoseDistanceDisplay'
-import Asteroids from '@/src/components/Asteroids/Asteroids'
-import { getAsteroids } from '@/src/actions/getAsteroids'
-import { AsteroidsCart } from '@/src/components/Cart/AsteroidsCart'
+import s from './page.module.scss'
 
 export default async function Home() {
   const asteroids = await getAsteroids()

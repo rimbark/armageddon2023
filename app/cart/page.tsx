@@ -1,8 +1,8 @@
 'use client'
+import AsteroidsLists from '@/components/AsteroidsLists/AsteroidsLists'
+import { useCartContext } from '@/components/CartContext/CartContext'
 import React from 'react'
 import s from './style/Cart.module.scss'
-import { useCartContext } from '@/src/components/CartContext/CartContext'
-import AsteroidsLists from '@/src/components/AsteroidsLists/AsteroidsLists'
 
 export default function Cart() {
   const { cart } = useCartContext()

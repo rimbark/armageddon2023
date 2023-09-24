@@ -1,7 +1,7 @@
 'use client'
 
+import { INearEarthObjects } from '@/types/types'
 import React, { createContext, useContext } from 'react'
-import { INearEarthObjects } from '@/src/types/types'
 
 interface ICartContext {
   cart: INearEarthObjects

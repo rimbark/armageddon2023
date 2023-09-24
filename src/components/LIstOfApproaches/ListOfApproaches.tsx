@@ -1,5 +1,5 @@
+import { ICloseApproachDaum } from '@/types/types'
 import React from 'react'
-import { ICloseApproachDaum } from '@/src/types/types'
 
 interface IProps {
   approachData: ICloseApproachDaum

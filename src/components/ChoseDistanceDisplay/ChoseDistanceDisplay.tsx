@@ -1,9 +1,9 @@
 'use client'
-import React from 'react'
 import {
   Distance,
   useDistanceDisplayContext,
-} from '@/src/components/DistanceContext/DistanceDisplayContext'
+} from '@/components/DistanceContext/DistanceDisplayContext'
+import React from 'react'
 
 export const ChoseDistanceDisplay = () => {
   const { changeDistanceDisplay } = useDistanceDisplayContext()

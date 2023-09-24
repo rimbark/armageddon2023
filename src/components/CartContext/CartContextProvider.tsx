@@ -1,7 +1,7 @@
 'use client'
+import { CartContext } from '@/components/CartContext/CartContext'
+import { INearEarthObjects } from '@/types/types'
 import React, { useState } from 'react'
-import { CartContext } from '@/src/components/CartContext/CartContext'
-import { INearEarthObjects } from '@/src/types/types'
 
 interface IProps {
   children: React.ReactNode

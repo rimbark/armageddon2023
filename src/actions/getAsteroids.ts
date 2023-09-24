@@ -1,6 +1,8 @@
-import { IAsteroidInfo, IRoot } from '@/src/types/types'
+import { IAsteroidInfo, IRoot } from '@/types/types'
+import 'dotenv/config'
+import * as process from 'process'
 
-const API_KEY = 'ElUg9Aq1SyEbXMIZYgSRig3r0Q5U27Jeq2fvvpz1'
+const API_KEY = process.env.NEXT_PUBLIC_NOT_SECRET_API_KEY
 const START_DATE = new Date().toISOString().split('T')[0]
 
 interface IParams {

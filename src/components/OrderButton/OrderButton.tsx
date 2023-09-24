@@ -1,7 +1,7 @@
+import { useCartContext } from '@/components/CartContext/CartContext'
+import { IAsteroidInfo } from '@/types/types'
 import React from 'react'
 import s from './style/OrderButton.module.scss'
-import { IAsteroidInfo } from '@/src/types/types'
-import { useCartContext } from '@/src/components/CartContext/CartContext'
 
 interface IProps {
   asteroidInfo: IAsteroidInfo

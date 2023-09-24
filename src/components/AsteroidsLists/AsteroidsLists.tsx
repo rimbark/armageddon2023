@@ -1,6 +1,6 @@
+import { List } from '@/components/List/List'
+import { IAsteroidInfo, INearEarthObjects } from '@/types/types'
 import React from 'react'
-import { IAsteroidInfo, INearEarthObjects } from '@/src/types/types'
-import { List } from '@/src/components/List/List'
 
 interface AsteroidsListsProps {
   date: string

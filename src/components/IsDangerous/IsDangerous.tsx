@@ -1,7 +1,7 @@
+import dangerous from '@/public/images/dangerous.svg'
+import Image from 'next/image'
 import React from 'react'
 import s from './style/IsDangerous.module.scss'
-import Image from 'next/image'
-import dangerous from '@/src/public/images/dangerous.svg'
 
 interface IProps {
   isDangerous: boolean

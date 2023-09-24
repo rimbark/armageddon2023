@@ -1,11 +1,11 @@
 'use client'
+import { getAsteroidsNextDay, getNextDayDate } from '@/actions/getAsteroids'
+import AsteroidsLists from '@/components/AsteroidsLists/AsteroidsLists'
+import { Spinner } from '@/components/Spinner/Spinner'
+import { throttle } from '@/helpers/throttle'
+import { INearEarthObjects } from '@/types/types'
 import React, { useEffect, useState } from 'react'
 import s from './style/Asteroids.module.scss'
-import { INearEarthObjects } from '@/src/types/types'
-import AsteroidsLists from '@/src/components/AsteroidsLists/AsteroidsLists'
-import { getAsteroidsNextDay, getNextDayDate } from '@/src/actions/getAsteroids'
-import { Spinner } from '@/src/components/Spinner/Spinner'
-import { throttle } from '@/src/helpers/throttle'
 
 interface IProps {
   asteroids: INearEarthObjects

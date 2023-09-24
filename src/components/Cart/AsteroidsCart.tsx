@@ -1,11 +1,11 @@
 'use client'
+import { useCartContext } from '@/components/CartContext/CartContext'
+import { getAsteroidsCartSize } from '@/helpers/getAsteroidsCartSize'
+import { getCartSIze } from '@/helpers/getCartSIze'
+import cn from 'clsx'
+import Link from 'next/link'
 import React from 'react'
 import s from './style/AsteroidsCart.module.scss'
-import { getAsteroidsCartSize } from '@/src/helpers/getAsteroidsCartSize'
-import Link from 'next/link'
-import { useCartContext } from '@/src/components/CartContext/CartContext'
-import { getCartSIze } from '@/src/helpers/getCartSIze'
-import cn from 'clsx'
 
 export const AsteroidsCart = () => {
   const { cart } = useCartContext()
