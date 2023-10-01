@@ -1,4 +1,3 @@
-'use client'
 import { getAsteroidById } from '@/actions/getAsteroids'
 import { IsDangerous } from '@/components/IsDangerous/IsDangerous'
 import { ListOfApproaches } from '@/components/LIstOfApproaches/ListOfApproaches'
@@ -28,31 +27,40 @@ export default async function AsteroidInfo({ params: { data } }: IProps) {
   return (
     <div className={cn(s.container, passionOne.className)}>
       <h2>Asteroid name - {getAsteroidName(asteroidInfo.name)}</h2>
-      <ul className={s.mainListBlock}>
-        <li>
-          <h3>Size -</h3>
-          {asteroidSize} m
-        </li>
-        <li>
-          <h3>Danger -</h3>
-          <IsDangerous
-            isDangerous={asteroidInfo.is_potentially_hazardous_asteroid}
-            isAbout={true}
+      {!data ? (
+        <div>Не удалось загрузить данные об астероиде!</div>
+      ) : (
+        <>
+          <ul className={s.mainListBlock}>
+            <li>
+              <h3>Size -</h3>
+              {asteroidSize} m
+            </li>
+            <li>
+              <h3>Danger -</h3>
+              <IsDangerous
+                isDangerous={asteroidInfo.is_potentially_hazardous_asteroid}
+                isAbout={true}
+              />
+            </li>
+          </ul>
+          <ul className={s.mainListBlock}>
+            <h2>List of approaches:</h2>
+            {asteroidInfo.close_approach_data.map(approachData => (
+              <ListOfApproaches
+                approachData={approachData}
+                key={approachData.close_approach_date}
+              />
+            ))}
+          </ul>
+          <Image
+            src={asteroid}
+            alt={'asteroid'}
+            className={cn(s.incomingAsteroid, s[getAsteroidSize(asteroidSize)])}
+            priority
           />
-        </li>
-      </ul>
-      <ul className={s.mainListBlock}>
-        <h2>List of approaches:</h2>
-        {asteroidInfo.close_approach_data.map(approachData => (
-          <ListOfApproaches approachData={approachData} key={approachData.close_approach_date} />
-        ))}
-      </ul>
-      <Image
-        src={asteroid}
-        alt={'asteroid'}
-        className={cn(s.incomingAsteroid, s[getAsteroidSize(asteroidSize)])}
-        priority
-      />
+        </>
+      )}
     </div>
   )
 }
