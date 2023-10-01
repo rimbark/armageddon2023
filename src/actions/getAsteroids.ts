@@ -42,17 +42,12 @@ export function getAsteroidById({ date, id }: IFindByIdParams) {
       .then(response => response.json())
       .then((data: IRoot) => {
         const asteroids: IAsteroidInfo[] = data.near_earth_objects[date]
-        const asteroid: IAsteroidInfo | undefined = asteroids.find(
-          item => item.id === id.toString(),
-        )
-        if (asteroid === undefined) {
-          throw new Error('Asteroid not found')
-        } else {
-          return asteroid
-        }
+        const asteroid = asteroids.find(item => item.id === id.toString())
+        return asteroid ? asteroid : null
       })
   } catch (error) {
     console.log(error)
-    throw new Error('Cant find this asteroid')
+    return null
+    // throw new Error('Cant find this asteroid')
   }
 }

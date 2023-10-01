@@ -10,7 +10,9 @@ import Image from 'next/image'
 import React from 'react'
 import s from './style/AsteroidInfo.module.scss'
 import { passionOne } from '@/app/passionOne.constants'
-import { redirect } from 'next/navigation'
+import { ICloseApproachDaum } from '@/types/types'
+
+export const dynamic = 'force-dynamic'
 
 interface IProps {
   params: {
@@ -19,20 +21,18 @@ interface IProps {
 }
 
 export default async function AsteroidInfo({ params: { data } }: IProps) {
-  if (!data) redirect('/')
   const asteroidInfo = await getAsteroidById(getDateAndIdFromParams(data))
-  const asteroidSize = Number.parseInt(
-    String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max),
-    10,
-  )
+  const asteroidSize = !asteroidInfo
+    ? 0
+    : Number.parseInt(String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max), 10)
 
   return (
     <div className={cn(s.container, passionOne.className)}>
-      <h2>Asteroid name - {getAsteroidName(asteroidInfo.name)}</h2>
-      {!data ? (
+      {!asteroidInfo ? (
         <div>Не удалось загрузить данные об астероиде!</div>
       ) : (
         <>
+          <h2>Asteroid name - {getAsteroidName(asteroidInfo.name)}</h2>
           <ul className={s.mainListBlock}>
             <li>
               <h3>Size -</h3>
@@ -48,7 +48,7 @@ export default async function AsteroidInfo({ params: { data } }: IProps) {
           </ul>
           <ul className={s.mainListBlock}>
             <h2>List of approaches:</h2>
-            {asteroidInfo.close_approach_data.map(approachData => (
+            {asteroidInfo.close_approach_data.map((approachData: ICloseApproachDaum) => (
               <ListOfApproaches
                 approachData={approachData}
                 key={approachData.close_approach_date}
