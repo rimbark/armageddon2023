@@ -1,3 +1,4 @@
+'use client'
 import { getAsteroidById } from '@/actions/getAsteroids'
 import { IsDangerous } from '@/components/IsDangerous/IsDangerous'
 import { ListOfApproaches } from '@/components/LIstOfApproaches/ListOfApproaches'
