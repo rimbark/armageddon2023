@@ -22,14 +22,13 @@
 
     margin-right: 5px;
 
-    color: var(--orange-base);
-
     font-weight: 400;
   }
 
   ul {
     list-style: none;
   }
+
   @include main-padding;
 }
 
@@ -71,10 +70,4 @@
   }
 }
 
-.mainListBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 
-  margin-top: 20px;
-}

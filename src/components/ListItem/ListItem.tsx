@@ -2,7 +2,6 @@ import { IsDangerous } from '@/components/IsDangerous/IsDangerous'
 import { OrderButton } from '@/components/OrderButton/OrderButton'
 import { useDistanceDisplayContext } from '@/context/DistanceContext/DistanceDisplayContext'
 import { changeDateFormat } from '@/helpers/changeDateFormat'
-import { changeDateFormatBack } from '@/helpers/changeDateFormatBack'
 import { formattedText } from '@/helpers/formattedText'
 import { getAsteroidName } from '@/helpers/getAsteroidName'
 import arrow from '@/public/images/arrow.svg'
@@ -23,10 +22,8 @@ interface IProps {
 export const ListItem = ({ asteroidInfo, isCartPage, date }: IProps) => {
   const { distanceIn } = useDistanceDisplayContext()
 
-  const formattedDate = isCartPage ? changeDateFormatBack(date) : date
-
   return (
-    <Link href={`${formattedDate}-${asteroidInfo.id}`} className={s.linkBlock}>
+    <Link href={`${asteroidInfo.id}`} className={s.linkBlock}>
       <div className={s.container}>
         <div>
           <h2>{isCartPage ? date : changeDateFormat(date)}</h2>

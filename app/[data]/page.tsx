@@ -3,7 +3,6 @@ import { IsDangerous } from '@/components/IsDangerous/IsDangerous'
 import { ListOfApproaches } from '@/components/LIstOfApproaches/ListOfApproaches'
 import { getAsteroidName } from '@/helpers/getAsteroidName'
 import { getAsteroidSize } from '@/helpers/getAsteroidSize'
-import { getDateAndIdFromParams } from '@/helpers/getDateAndIdFromParams'
 import asteroid from '@/public/images/asteroid.svg'
 import cn from 'clsx'
 import Image from 'next/image'
@@ -21,7 +20,7 @@ interface IProps {
 }
 
 export default async function AsteroidInfo({ params: { data } }: IProps) {
-  const asteroidInfo = await getAsteroidById(getDateAndIdFromParams(data))
+  const asteroidInfo = await getAsteroidById(data)
   const asteroidSize = !asteroidInfo
     ? 0
     : Number.parseInt(String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max), 10)
@@ -46,15 +45,12 @@ export default async function AsteroidInfo({ params: { data } }: IProps) {
               />
             </li>
           </ul>
-          <ul className={s.mainListBlock}>
-            <h2>List of approaches:</h2>
-            {asteroidInfo.close_approach_data.map((approachData: ICloseApproachDaum) => (
-              <ListOfApproaches
-                approachData={approachData}
-                key={approachData.close_approach_date}
-              />
-            ))}
-          </ul>
+
+          <h2>List of approaches:</h2>
+          {asteroidInfo.close_approach_data.map((approachData: ICloseApproachDaum) => (
+            <ListOfApproaches approachData={approachData} key={approachData.close_approach_date} />
+          ))}
+
           <Image
             src={asteroid}
             alt={'asteroid'}
