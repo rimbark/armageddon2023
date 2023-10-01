@@ -1,4 +1,3 @@
-import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
 import { CartContextProvider } from '@/context/CartContext/CartContextProvider'
 import { DistanceContextProvider } from '@/context/DistanceContext/DistanceContextProvider'
@@ -6,6 +5,7 @@ import '@/styles/index.scss'
 import type { Metadata } from 'next'
 import React from 'react'
 import { passionOne } from '@/app/passionOne.constants'
+import { Footer } from '@/components/Footer/Footer'
 
 export const metadata: Metadata = {
   title: 'Armageddon2023',
