@@ -27,7 +27,6 @@ export const formattedText = ({ distance, distanceIn }: IProps) => {
     ![12, 13, 14].includes(incomeDistance % 100)
   ) {
     return formattedDistance + variant2
-  } else {
-    return formattedDistance + variant3
   }
+  return formattedDistance + variant3
 }

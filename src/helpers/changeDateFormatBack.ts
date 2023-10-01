@@ -2,7 +2,7 @@ import { monthNames } from '@/helpers/date.constants'
 
 export const changeDateFormatBack = (inputDate: string) => {
   const parts = inputDate.split(' ')
-  let day = parts[0]
+  const day = parts[0]
   const month = monthNames.indexOf(parts[1]) + 1
   const year = parts[2]
 
