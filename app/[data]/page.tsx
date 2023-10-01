@@ -1,5 +1,4 @@
 import { getAsteroidById } from '@/actions/getAsteroids'
-import { passionOne } from '@/app/layout'
 import { IsDangerous } from '@/components/IsDangerous/IsDangerous'
 import { ListOfApproaches } from '@/components/LIstOfApproaches/ListOfApproaches'
 import { getAsteroidName } from '@/helpers/getAsteroidName'
@@ -10,6 +9,7 @@ import cn from 'clsx'
 import Image from 'next/image'
 import React from 'react'
 import s from './style/AsteroidInfo.module.scss'
+import { passionOne } from '@/app/passionOne.constants'
 
 interface IProps {
   params: {

@@ -4,14 +4,8 @@ import { CartContextProvider } from '@/context/CartContext/CartContextProvider'
 import { DistanceContextProvider } from '@/context/DistanceContext/DistanceContextProvider'
 import '@/styles/index.scss'
 import type { Metadata } from 'next'
-import { Passion_One } from 'next/font/google'
 import React from 'react'
-
-export const passionOne = Passion_One({
-  subsets: ['latin'],
-  weight: ['400', '700', '900'],
-  variable: '--font-passion',
-})
+import { passionOne } from '@/app/passionOne.constants'
 
 export const metadata: Metadata = {
   title: 'Armageddon2023',

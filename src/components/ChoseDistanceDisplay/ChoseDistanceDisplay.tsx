@@ -8,9 +8,7 @@ import React from 'react'
 export const ChoseDistanceDisplay = () => {
   const { changeDistanceDisplay } = useDistanceDisplayContext()
 
-  const swapDistanceDisplay: React.MouseEventHandler<HTMLInputElement> = (
-    e: React.MouseEvent<HTMLInputElement>,
-  ) => {
+  const swapDistanceDisplay = (e: React.MouseEvent<HTMLInputElement>) => {
     e.currentTarget.id === 'km'
       ? changeDistanceDisplay(Distance.KILOMETERS)
       : changeDistanceDisplay(Distance.LUNAR_ORBITS)

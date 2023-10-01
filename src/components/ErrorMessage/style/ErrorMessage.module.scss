@@ -1,0 +1,18 @@
+.errorContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  width: 380px;
+
+  padding-top: 24px;
+
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-m);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--orange-base);
+}
