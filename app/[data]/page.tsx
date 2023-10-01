@@ -10,6 +10,7 @@ import Image from 'next/image'
 import React from 'react'
 import s from './style/AsteroidInfo.module.scss'
 import { passionOne } from '@/app/passionOne.constants'
+import { redirect } from 'next/navigation'
 
 interface IProps {
   params: {
@@ -18,6 +19,7 @@ interface IProps {
 }
 
 export default async function AsteroidInfo({ params: { data } }: IProps) {
+  if (!data) redirect('/')
   const asteroidInfo = await getAsteroidById(getDateAndIdFromParams(data))
   const asteroidSize = Number.parseInt(
     String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max),
