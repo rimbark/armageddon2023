@@ -22,7 +22,6 @@ export default function Asteroids({ asteroids }: IProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   let handleScroll = () => {
-    console.log('СРАБОТКА ХЕНДЛ')
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2 && !isLoading) {
       fetchData()
     }
@@ -31,10 +30,7 @@ export default function Asteroids({ asteroids }: IProps) {
   handleScroll = _.throttle(handleScroll, 500)
 
   const fetchData = async () => {
-    console.log('СРАБОТКА ФЕТЧ')
     try {
-      console.log('СРАБОТКА ВНУТРИ ФЕТЧ')
-
       setIsLoading(true)
       const asteroidsNextDay = await getAsteroidsNextDay(currentDate)
 
@@ -52,11 +48,9 @@ export default function Asteroids({ asteroids }: IProps) {
   }
 
   useEffect(() => {
-    console.log('СРАБОТКА ЭФФЕКТ')
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      console.log('ВЫХОД ИЗ ЭФФЕКТ')
     }
   }, [handleScroll])
 

@@ -15,12 +15,12 @@ export const dynamic = 'force-dynamic'
 
 interface IProps {
   params: {
-    data: string
+    asteroidId: string
   }
 }
 
-export default async function AsteroidInfo({ params: { data } }: IProps) {
-  const asteroidInfo = await getAsteroidById(data)
+export default async function AsteroidInfo({ params: { asteroidId } }: IProps) {
+  const asteroidInfo = await getAsteroidById(asteroidId)
   const asteroidSize = !asteroidInfo
     ? 0
     : Number.parseInt(String(asteroidInfo.estimated_diameter.meters.estimated_diameter_max), 10)
@@ -28,7 +28,7 @@ export default async function AsteroidInfo({ params: { data } }: IProps) {
   return (
     <div className={cn(s.container, passionOne.className)}>
       {!asteroidInfo ? (
-        <div>Не удалось загрузить данные об астероиде!</div>
+        <h2>Can't load information about asteroid!</h2>
       ) : (
         <>
           <h2>Asteroid name - {getAsteroidName(asteroidInfo.name)}</h2>

@@ -45,6 +45,5 @@ export function getAsteroidById(id: string) {
   } catch (error) {
     console.log(error)
     return null
-    // throw new Error('Cant find this asteroid')
   }
 }
