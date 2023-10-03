@@ -24,6 +24,10 @@
   }
 
   @include main-padding;
+  
+  @media (max-width: 600px) {
+    padding-left: 10px;
+  }
 }
 
 
