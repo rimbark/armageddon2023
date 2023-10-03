@@ -35,6 +35,10 @@ body {
 
 
 main {
-  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+
   flex-grow: 1;
+
+  width: 100%;
 }
