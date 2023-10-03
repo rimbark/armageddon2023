@@ -1,10 +1,9 @@
 @import "src/styles/variables/mixins";
 
 .container {
-  overflow: hidden;
   flex-direction: column;
 
-  width: 100%;
+  width: max-content;
   height: 100%;
 
   color: var(--white-base);
