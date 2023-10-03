@@ -11,6 +11,11 @@
 
   color: var(--white-base);
   gap: 8px;
+
+  .link {
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 .container h1 {
